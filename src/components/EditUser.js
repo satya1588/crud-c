@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 import { FormGroup, FormControl, InputLabel, Input, Button, styled, Typography } from '@mui/material';
 import { useNavigate, useParams } from 'react-router-dom';
-import { getUsers, editUser } from '../servic/api';
+import { getUser, editUser } from '../servic/api';
 
 const defaultValue = {
     name: '',
@@ -31,7 +31,7 @@ const [user, setUser] = useState(defaultValue);
     }, []);
 
     const loadUserDetails = async() => {
-        const response = await getUsers(id);
+        const response = await getUser(id);
         setUser(response.data);
     }
 
